@@ -71,6 +71,14 @@ Example, added just above </head> tag:-
 		});
 	</script>
 
+## .havingData(key, valueOrRegexOrJQuery) ##
+### A helpful jQuery function ###
+
+Filter the selection, returning (and chaining) only items where the value of the specified Data (@ key) matches the second parameter. 
+
+---
+
 There is a complete working example here:- [http://jsfiddle.net/alano/d4aQ2/](http://jsfiddle.net/alano/d4aQ2/)
+
 
 For further information, please send message to developer.

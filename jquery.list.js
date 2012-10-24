@@ -81,4 +81,21 @@
         }
     };
 
+    // Return selection containing matching specified Data key/value
+    $.fn.havingData = function (key, valueOrRegexOrjQuery) {
+        var test = valueOrRegexOrjQuery;
+        if (test instanceof jQuery) { //match data(key) values in two jQuery selections
+            return this.filter(function () {
+                var $item = $(this);
+                return test.get().some(function (v) {
+                    var some = $item.data(key) == $(v).data(key);
+                    return some;
+                });
+            });
+        } else { //match data(key) with specified string value or regex
+            var value = (test instanceof RegExp) ? test : new RegExp(test);
+            return this.filter(function () { return $(this).data(key).search(value) >= 0; });
+        }
+    };
+
 })(jQuery, document, window);
